@@ -34,3 +34,34 @@ parts.each do |r|
     Part.create(r)
   end
 end
+
+
+
+# Through data
+patients = [
+  { name: 'Sarah' },
+  { name: 'Julie' },
+]
+
+patients.each do |r|
+  if Patient.exists? name: r[:name]
+    puts "Exists #{r}"
+  else
+    puts "Adding #{r}"
+    Patient.create(r)
+  end
+end
+
+physicians = [
+  { name: 'Dr. Woe' },
+  { name: 'Dr. Smith' },
+]
+
+physicians.each do |r|
+  if Physician.exists? name: r[:name]
+    puts "Exists #{r}"
+  else
+    puts "Adding #{r}"
+    Physician.create(r)
+  end
+end
